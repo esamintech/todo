@@ -5,6 +5,20 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 export default function TodoItem({ item, pressHandler, isHistory }) {
   const [isDone, setIsDone] = useState(false);
 
+  function History({ todos }) {
+    return (
+      <View style={styles.historyContainer}>
+        <Text style={styles.historyTitle}>History</Text>
+        <FlatList
+          data={todos}
+          renderItem={({ item }) => (
+            <Text style={styles.historyItem}>{item.text}</Text>
+          )}
+          keyExtractor={(item) => item.key}
+        />
+      </View>
+    );
+  }
   const handlePress = () => {
     setIsDone(!isDone);
     if (!pressHandler) return;

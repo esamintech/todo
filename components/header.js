@@ -9,7 +9,7 @@ import {
   View,
 } from "react-native";
 
-export default function Header() {
+export default function Header({ setShowHistory }) {
   return (
     <View>
       <LinearGradient
@@ -19,7 +19,7 @@ export default function Header() {
         style={styles.header}
       >
         <Text style={styles.title}>My Todoes</Text>
-        <TouchableOpacity onPress={() => setShowHistory(!showHistory)}>
+        <TouchableOpacity onPress={() => setShowHistory(true)}>
           <MaterialIcons
             name={showHistory ? "history" : "history"}
             size={24}

@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 
 export default function History({ todos }) {
   return (
@@ -15,3 +15,21 @@ export default function History({ todos }) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  historyContainer: {
+    flex: 1,
+    backgroundColor: "#fff",
+    padding: 40,
+  },
+  historyTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  historyItem: {
+    marginTop: 20,
+    padding: 20,
+    backgroundColor: "#f8f8f8",
+    fontSize: 20,
+  },
+});

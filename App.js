@@ -10,15 +10,11 @@ import {
 
 import AddTodo from "./components/addTodo";
 import Header from "./components/header";
+import History from "./components/history";
 import TodoItem from "./components/todoitem";
 
 export default function App() {
-  const [todos, setTodos] = useState([
-    { text: "Go to the Gym", key: "1" },
-    { text: "create an app", key: "2" },
-    { text: "play on the switch", key: "3" },
-    { text: "working on the project", key: "4" },
-  ]);
+  const [todos, setTodos] = useState([{ text: "Go to the Gym", key: "1" }]);
 
   const [showHistory, setShowHistory] = useState(false);
 
@@ -51,7 +47,7 @@ export default function App() {
     >
       <View style={styles.container}>
         {/* header */}
-        <Header />
+        <Header setShowHistory={setShowHistory} />
         <View style={styles.content}>
           {/* to form */}
           <AddTodo submitHandler={submitHandler} />
@@ -63,7 +59,11 @@ export default function App() {
               <FlatList
                 data={todos}
                 renderItem={({ item }) => (
-                  <TodoItem item={item} pressHandler={pressHandler} />
+                  <TodoItem
+                    item={item}
+                    pressHandler={pressHandler}
+                    isHistory={false}
+                  />
                 )}
               />
             )}
