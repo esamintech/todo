@@ -83,9 +83,11 @@ const styles = StyleSheet.create({
   content: {
     padding: 40,
     flex: 1,
+    backgroundColor: "#BFDAC4",
   },
 
   list: {
+    flex: 1,
     marginTop: 20,
     marginBottom: -50, // hack for bottom border of last element in flatlist not showing
   },

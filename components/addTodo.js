@@ -15,8 +15,8 @@ export default function AddTodo({ submitHandler }) {
         onChangeText={changeHandler}
       />
       <LinearGradient
-        colors={["#3A1B68", "#D15163", "#F5BF84", "#BFDAC4"]}
-        start={{ x: 0, y: 1 }}
+        colors={["#3A1B68", "#D15163", "#D15163", "#3A1B68"]}
+        start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
         style={styles.addTodo}
       >
