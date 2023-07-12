@@ -1,7 +1,7 @@
+import { MaterialIcons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-
 export default function TodoItem({ item, pressHandler, isHistory }) {
   const [isDone, setIsDone] = useState(false);
 
@@ -9,6 +9,7 @@ export default function TodoItem({ item, pressHandler, isHistory }) {
     return (
       <View style={styles.historyContainer}>
         <Text style={styles.historyTitle}>History</Text>
+
         <FlatList
           data={todos}
           renderItem={({ item }) => (
@@ -33,7 +34,9 @@ export default function TodoItem({ item, pressHandler, isHistory }) {
           end={{ x: 1, y: 0 }}
           style={styles.item}
         >
-          <Text style={styles.itemText}>{item.text}</Text>
+          <View>
+            <Text style={styles.itemText}>{item.text}</Text>
+          </View>
         </LinearGradient>
       </TouchableOpacity>
     );
@@ -46,6 +49,7 @@ export default function TodoItem({ item, pressHandler, isHistory }) {
         end={{ x: 1, y: 0 }}
         style={styles.item}
       >
+        <MaterialIcons name="delete" style={styles.deleteIcon} />
         <View style={[styles.item, isDone && styles.doneItem]}>
           <Text style={[styles.itemText, isDone && styles.doneText]}>
             {item.text}
@@ -76,5 +80,13 @@ const styles = StyleSheet.create({
 
   doneText: {
     textDecorationLine: "line-through",
+  },
+
+  deleteIcon: {
+    position: "absolute",
+    top: 5,
+    right: 5,
+    fontSize: 20,
+    color: "#fff",
   },
 });
